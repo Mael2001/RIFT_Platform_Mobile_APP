@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Video Handler
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Display the video stream while capturing -->
+  <video class="video" vertical="center" horizontal="center" #video autoplay playsinline muted [hidden]="!isRecording"></video>
+
+
+  <ion-content>
+    <ion-grid>
+      <ion-list *ngIf="!isRecording" >
+        <ion-row *ngFor="let video of videoService.videos;" [@selectItem]="getSelected(video) ? 'selected' : 'notSelected'">
+          <ion-col>
+            <ion-item >
+              {{ video }}
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-button color="dark" horizontal="center" (click)="play(video)">Play Video</ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-checkbox color="primary" [checked]="getSelected(video)"  horizontal="center" (click)="selectVideo(video)"></ion-checkbox>
+          </ion-col>
+        </ion-row>
+      </ion-list>
+    </ion-grid>
+  </ion-content>
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button (click)="isRecording ? stopRecord() : recordVideo()">
+      <ion-icon [name]="isRecording ? 'stop' : 'videocam'"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button (click)="isRecording ? stopRecord() : recordVideo()">
+      <ion-icon [name]="isRecording ? 'stop' : 'videocam'"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="uploadVideos()">
+      <ion-icon name="cloud-upload"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
