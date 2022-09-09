@@ -47,6 +47,9 @@ export class Tab1Page {
   addPhotoToGallery() {
     this.photoService.addNewToGallery();
   }
+  openLeaderboard(){
+    window.open('https://www.letsfishroatan.com/#TOURNAMENT', '_blank');
+  }
   uploadImages() {
     const imageAmount = this.selected_images.length;
     if(imageAmount>0){
