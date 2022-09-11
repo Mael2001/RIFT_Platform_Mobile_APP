@@ -56,6 +56,10 @@ export class Tab2Page {
       };
   }
 
+  openLeaderboard(){
+    window.open('https://www.letsfishroatan.com/#TOURNAMENT', '_blank');
+  }
+
   getSelected(video){
     if (this.selectedVideos.indexOf(video) === -1) {
       return false;

@@ -30,6 +30,13 @@
       </ion-list>
     </ion-grid>
   </ion-content>
+
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+    <ion-fab-button (click)="openLeaderboard()">
+      <ion-icon name="desktop-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
   <ion-fab vertical="bottom" horizontal="center" slot="fixed">
     <ion-fab-button (click)="isRecording ? stopRecord() : recordVideo()">
       <ion-icon [name]="isRecording ? 'stop' : 'videocam'"></ion-icon>
