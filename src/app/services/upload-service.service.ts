@@ -9,16 +9,16 @@ export class UploadService {
 
   constructor(private ftp: FTP) {
     this.ftp
-      .connect('ftpupload.net', 'lblog_32136658', 'tfdg4k')
-      .then((res: any) => {
-        console.log('Login successful', res);
-      })
-      .catch((error: any) => console.error(error));
+        .connect('ftpupload.net', 'lblog_32136658', 'tfdg4k')
+        .then((res: any) => {
+          console.log('Login successful', res);
+        })
+        .catch((error: any) => console.error(error));
     }
   // eslint-disable-next-line @typescript-eslint/naming-convention
   uploadImages(selected_images: any[]) {
     selected_images.forEach(async (element) => {
-      const info = prompt('Please fill information', 'Enter Boat, Captain Name, Fish in the format Boat_Captain_Fish');
+      const info = prompt('Enter Boat, Captain Name, Fish in the format Boat_Captain_Fish');
       const remoteName = `/images/${info}.${this.getExtension(element.filepath)}`;
       await this.uploadItems(element.filepath, remoteName);
     });
@@ -26,7 +26,7 @@ export class UploadService {
   // eslint-disable-next-line @typescript-eslint/naming-convention
   uploadVideos(selected_videos: any[]) {
     selected_videos.forEach(async (element) => {
-      const info = prompt('Please fill information', 'Enter Boat, Captain Name, Fish in the format Boat_Captain_Fish');
+      const info = prompt('Enter Boat, Captain Name, Fish in the format Boat_Captain_Fish');
       const remoteName = `/videos/${info}.${this.getExtension(element)}`;
       await this.uploadItems(element, remoteName);
     });
