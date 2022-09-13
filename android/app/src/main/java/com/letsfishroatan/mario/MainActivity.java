@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package com.letsfishroatan.mario;
 
 import com.getcapacitor.BridgeActivity;
 

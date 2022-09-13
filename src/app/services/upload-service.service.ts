@@ -18,14 +18,16 @@ export class UploadService {
   // eslint-disable-next-line @typescript-eslint/naming-convention
   uploadImages(selected_images: any[]) {
     selected_images.forEach(async (element) => {
-      const remoteName = `/images/${this.getHash(element.filepath,12).toString()}.${this.getExtension(element.filepath)}`;
+      const info = prompt('Please fill information', 'Enter Boat, Captain Name, Fish in the format Boat_Captain_Fish');
+      const remoteName = `/images/${info}.${this.getExtension(element.filepath)}`;
       await this.uploadItems(element.filepath, remoteName);
     });
   }
   // eslint-disable-next-line @typescript-eslint/naming-convention
   uploadVideos(selected_videos: any[]) {
     selected_videos.forEach(async (element) => {
-      const remoteName = `/videos/${this.getHash(element,12).toString()}.${this.getExtension(element)}`;
+      const info = prompt('Please fill information', 'Enter Boat, Captain Name, Fish in the format Boat_Captain_Fish');
+      const remoteName = `/videos/${info}.${this.getExtension(element)}`;
       await this.uploadItems(element, remoteName);
     });
   }
